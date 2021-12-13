@@ -1,0 +1,5 @@
+.home{
+    display: flex;
+    padding-left: 336px;
+    overflow: auto;
+}

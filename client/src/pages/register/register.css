@@ -1,0 +1,77 @@
+.register {
+  height: calc(99vh - 50px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+ 
+}
+.titles {
+  display: flex;
+  flex-direction: column;
+  
+ 
+}
+
+.registerTitle {
+  font-size: 30px;
+  color: #F0972A;
+  top: 334px;
+left: 338px;
+width: 262px;
+height: 120px;
+  
+}
+.registerText {
+  top: 483px;
+left: 338px;
+width: 412px;
+height: 215px;
+}
+
+.registerForm {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  padding-left: 200px;
+  gap: 10px;
+  font-size: large;
+}
+
+.registerForm > label {
+  margin: 10px 0;
+  color: #F0972A;
+  
+}
+
+.registerInput {
+  padding: 10px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.registerButton {
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #96BB36;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  height: 40px;
+  width: 202px;
+  font-size: small;
+}
+
+.registerLoginButton {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #96BB36;
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
