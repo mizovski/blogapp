@@ -13,7 +13,7 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-mongoose.connect('mongodb://localhost:27017/client', {
+mongoose.connect('mongodb://localhost:27017', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

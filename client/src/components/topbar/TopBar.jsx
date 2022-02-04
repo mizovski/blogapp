@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./topbar.css";
 import Logo from "../../../src/Logo.PNG";
-
+import Button from '@mui/material/Button';
 
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
@@ -68,9 +68,9 @@ export default function TopBar() {
             </li>
           </ul>
         )}
-        <button className="topListItem button" onClick={handleLogout}>
+        <Button variant="contained" className="topListItem button" color="success" onClick={handleLogout}>
         {user && "LOGOUT"}
-        </button>
+        </Button>
       </div>
     </div>
   );
