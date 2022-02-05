@@ -21,9 +21,9 @@ export default function Home() {
     <>
       <Header />
       <div className="home">
-      <Grid container spacing={3}>
+      
         <Posts posts={posts} />
-        </Grid>
+        
         
        
       </div>
