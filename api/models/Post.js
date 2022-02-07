@@ -2,10 +2,27 @@ const mongoose = require("mongoose");
 
 const PostSchema = new mongoose.Schema(
   {
+   
     title: {
       type: String,
       required: true,
       unique: true,
+    },
+    category: {
+      type: String,
+      required: false,
+    },
+    preparationTime: {
+      type: Number,
+      required: false,
+    },
+    people: {
+      type: Number,
+      required: false,
+    },
+    shortDesc: {
+      type: String , 
+      required: false,
     },
     desc: {
       type: String,
@@ -19,10 +36,7 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    categories: {
-      type: Array,
-      required: false,
-    },
+    
   },
   { timestamps: true }
 );

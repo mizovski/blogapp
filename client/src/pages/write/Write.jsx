@@ -53,7 +53,9 @@ export default function Write() {
   return (
     <div className="write">
       <form onSubmit={handleSubmit}>
-     <div className="image"></div>
+     <div className="image" 
+     onChange={e=>setPhoto(e.target.value)}> 
+     </div>
      <div className="title">
      <FormControl sx={{ width: '562px' , height: '40px' }} 
      onChange={e=>setTitle(e.target.value)}>
@@ -73,10 +75,10 @@ export default function Write() {
     label="Category"
     
   >
-        <MenuItem value={"Breakfast"}>Breakfast</MenuItem>
-        <MenuItem value={"Brunch"}>Brunch</MenuItem>
-        <MenuItem value={"Lunch"}>Lunch</MenuItem>
-        <MenuItem value={"Dinner"}>Dinner</MenuItem>
+        <MenuItem value={category.breakfast}>Breakfast</MenuItem>
+        <MenuItem value={category.brunch}>Brunch</MenuItem>
+        <MenuItem value={category.lunch}>Lunch</MenuItem>
+        <MenuItem value={category.dinner}>Dinner</MenuItem>
       </Select>
     </FormControl>    
      </div>
@@ -103,7 +105,7 @@ export default function Write() {
      <TextField
      sx={{ width: '562px' , height: '96px' }}
           id="outlined-multiline-flexible"
-          label="Multiline"
+          label="Short Description"
           multiline
           maxRows={4}
           
@@ -114,12 +116,13 @@ export default function Write() {
      <div className="desc">
      <TextField
      onChange={e=>setDesc(e.target.value)}
+     
      sx={{ width: '377px' , height: '284px' }}
           id="outlined-multiline-static"
           label="Recipe"
           multiline
           rows={4}
-          defaultValue="Recipe"
+          defaultValue=""
         />
      </div>
      <div className="button">

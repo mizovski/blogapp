@@ -11,23 +11,25 @@ import ReadMoreIcon from '@mui/icons-material/ReadMore';
 import LikeBtn from "../counter/LikeBtn";
 import Likes from "../counter/counter";
 import { Link } from "react-router-dom";
-import { Grid } from "@mui/material";
-
+import { Chip } from "@mui/material";
+import { useState } from "react";
 
 
 
 
 
 export default function Post({ post }) {
-  const PF = "http://localhost:5000/images";
+  const PF = "http://localhost:5000/photo";
   
   
-  
+  const [buttonPopup, setButtonPopup] = useState(false);
   
   return (
+    
     <div className="post">
       
-      <Link to={`/post/${post._id}`} className="link">
+      <Link to={`/post/${post._id}`} className="link" onClick={() =>
+         setButtonPopup(true)}>
       
         
       <Card sx={{ maxWidth: 345 }}>
@@ -39,6 +41,9 @@ export default function Post({ post }) {
         alt="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.theguardian.com%2Ffood%2F2021%2Foct%2F08%2Fred-wall-food-serving-up-our-class-differences-on-a-plate&psig=AOvVaw2ptZ_S0rf_h0nNt-xDAHVO&ust=1643836644080000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCJiTrZC33_UCFQAAAAAdAAAAABAD"/>}
         
       />
+      <Chip label={post.category} color="success">
+      
+        </Chip>
       <CardContent>
         <Typography variant="body1" color="orange" fontSize="2rem"> 
         {post.title}  

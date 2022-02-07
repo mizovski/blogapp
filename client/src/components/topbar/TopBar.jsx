@@ -5,6 +5,7 @@ import "./topbar.css";
 import Logo from "../../../src/Logo.PNG";
 import Button from '@mui/material/Button';
 
+
 export default function TopBar() {
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
@@ -68,7 +69,7 @@ export default function TopBar() {
             </li>
           </ul>
         )}
-        <Button variant="contained" className="topListItem button" color="success" onClick={handleLogout}>
+        <Button variant="outlined" className="topListItem button" color="success" onClick={handleLogout}>
         {user && "LOGOUT"}
         </Button>
       </div>

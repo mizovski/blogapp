@@ -4,15 +4,23 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css"; 
+import Popup from '../popup/popup';
+import buttonPopup from "../post/Post";
+import setButtonPopup from "../popup/popup";
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "http://localhost:5000/photo/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
+  const [category, setCategory] = useState("");
+  const [preparationTime, setPreparationTime] = useState("");
+  const [people, setPeople] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
   const [desc, setDesc] = useState("");
+  const [photo, setPhoto] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
 
   useEffect(() => {
@@ -20,7 +28,12 @@ export default function SinglePost() {
       const res = await axios.get("/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
+      setCategory(res.data.category);
+      setPreparationTime(res.data.preparationTime);
+      setPeople(res.data.people);
+      setShortDesc(res.data.shortDesc);
       setDesc(res.data.desc);
+      setPhoto(res.data.photo);
     };
     getPost();
   }, [path]);
@@ -39,15 +52,23 @@ export default function SinglePost() {
       await axios.put(`/posts/${post._id}`, {
         username: user.username,
         title,
+        category,
+        preparationTime,
+        people,
+        shortDesc,
         desc,
+        photo,
       });
       setUpdateMode(false)
     } catch (err) {}
   };
 
+  
+
   return (
-    <div className="singlePost">
-      <div className="singlePostWrapper">
+    <div className="singlePost" >
+      <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+      <div className="singlePostWrapper" >
         {post.photo && (
           <img src={PF + post.photo} alt="" className="singlePostImg" />
         )}
@@ -102,6 +123,7 @@ export default function SinglePost() {
           </button>
         )}
       </div>
+      </Popup>
     </div>
   );
 }
